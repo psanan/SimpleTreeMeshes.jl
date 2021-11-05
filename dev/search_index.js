@@ -1,0 +1,3 @@
+var documenterSearchIndex = {"docs":
+[{"location":"#SimpleTreeMeshes","page":"Home","title":"SimpleTreeMeshes","text":"","category":"section"},{"location":"","page":"Home","title":"Home","text":"Modules = [SimpleTreeMeshes]\nOrder   = [:function, :type]","category":"page"},{"location":"#SimpleTreeMeshes.CreateSimpleTreeMesh","page":"Home","title":"SimpleTreeMeshes.CreateSimpleTreeMesh","text":"Creates a new `SimpleTreMesh` object.\n\n`refinement_function(x, y, d, level)` should return a boolean value\nindicating if an element with corner at `(x,y)`, size `d`, and\nrefinement level `level` should be refined.\n\n\n\n\n\n","category":"function"}]
+}
