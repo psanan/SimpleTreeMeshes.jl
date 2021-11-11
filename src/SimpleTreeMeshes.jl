@@ -10,7 +10,7 @@ export face_field_average_to_element_field
 export get_corner_coordinates, get_face_coordinates, get_element_coordinates, get_element_corner_coordinates
 export get_element_size, get_face_size
 export transform_p4est_coordinates, transform_p4est_level_to_element_size
-export hanging_corner_get_big_element, c2f_small
+export hanging_corner_get_big_element, c2f_small, big_face_get_small_faces, face_get_big_face
 
 export CORNERS_PER_ELEMENT, ELEMENTS_PER_CORNER, FACES_PER_ELEMENT
 export LEFT, RIGHT, UP, DOWN, DOWN_LEFT, DOWN_RIGHT, UP_LEFT, UP_RIGHT

@@ -139,7 +139,7 @@ end
 
 function c2f_small(tree::SimpleTreeMesh, loc, c_id::Int)
     f_id = tree.c2f[loc, c_id]
-    if tree.f[f_id].face_type == face_big
+    if f_id != -1 && tree.f[f_id].face_type == face_big
         if loc in (RIGHT, UP)
             f_id += 1
             @assert tree.f[f_id].face_type == face_first
@@ -150,4 +150,18 @@ function c2f_small(tree::SimpleTreeMesh, loc, c_id::Int)
         end
     end
     return f_id
+end
+
+function big_face_get_small_faces(tree::SimpleTreeMesh, f_id_big)
+  return f_id_big + 1, f_id_big + 2
+end
+
+function face_get_big_face(tree::SimpleTreeMesh, f_id_small)
+  if tree.f[f_id_small].face_type == face_first
+     return f_id_small - 1
+  elseif tree.f[f_id_small].face_type == face_second
+     return f_id_small - 2
+  else
+     return f_id_small
+  end
 end
