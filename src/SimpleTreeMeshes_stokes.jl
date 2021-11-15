@@ -43,14 +43,13 @@ function eqnum_to_e_id(tree::SimpleTreeMesh, eqnum::Int)
 end;
 
 
-function dvx_dy(tree::SimpleTreeMesh, c_id, problem)
+function dvx_dy(tree::SimpleTreeMesh, c_id, problem=nothing)
     @assert 1 <= c_id <= tree.nc
     corner_type = tree.c[c_id].corner_type
     corner_info = tree.c[c_id].info
 
-    @assert problem.boundary_conditions in [stokes_boundary_free_slip, stokes_boundary_dirichlet]
-
     if corner_type == corner_boundary
+        @assert problem.boundary_conditions in [stokes_boundary_free_slip, stokes_boundary_dirichlet]
         if corner_info & 0b1100 == 0b1100  # One of the corners of the domain
             # This domain corner case is not required for free-slip or Dirichlet BCs,
             # just when wanting to directly compute Txy (e.g. for testing)
@@ -209,14 +208,13 @@ function dvx_dy(tree::SimpleTreeMesh, c_id, problem)
     return cols, vals, rhs_val
 end;
 
-function dvy_dx(tree::SimpleTreeMesh, c_id, problem)
+function dvy_dx(tree::SimpleTreeMesh, c_id, problem=nothing)
     @assert 1 <= c_id <= tree.nc
     corner_type = tree.c[c_id].corner_type
     corner_info = tree.c[c_id].info
 
-    @assert problem.boundary_conditions in [stokes_boundary_free_slip, stokes_boundary_dirichlet]
-
     if corner_type == corner_boundary
+        @assert problem.boundary_conditions in [stokes_boundary_free_slip, stokes_boundary_dirichlet]
         if corner_info & 0b1100 == 0b1100
             # This domain corner case is not actually required for free-slip or Dirichlet BCs
             vy_boundary =  problem.vy_ref(get_corner_coordinates(tree, c_id)...)

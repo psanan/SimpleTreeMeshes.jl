@@ -23,7 +23,7 @@ export FaceType, face_regular, face_boundary, face_big, face_first, face_second
 export FaceDirection, face_vx, face_vy
 
 export assemble_system, sol2vp, vp2sol
-export compute_Txy
+export compute_Txy, dvx_dy, dvy_dx
 export StokesBoundaryConditions, stokes_boundary_free_slip, stokes_boundary_dirichlet
 export populate_stokes_boundary_velocities
 
