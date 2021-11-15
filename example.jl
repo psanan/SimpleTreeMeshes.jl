@@ -37,11 +37,8 @@ function example()
         return false
     end;
 
-
     # Create the mesh
     mesh = CreateSimpleTreeMesh(rf_demo)
-
-
 
     # Build a Stokes system and solve
 
@@ -100,10 +97,9 @@ function example()
     plot_grid!(p_stokes, mesh, RGB(0.25, 0.25, 0.25))
     plot_averaged_velocity_field!(p_stokes, mesh, v, color=RGB(0.25, 0.25, 0.25))
 
-		l = @layout [a b; _ c; d e]
-		p_all = plot(p_mesh, p_numbers, p_vx, p_vy, p_stokes, layout = l, size=(800, 1200))
-		display(p_all)
-
+    l = @layout [a b; _ c; d e]
+    p_all = plot(p_mesh, p_numbers, p_vx, p_vy, p_stokes, layout = l, size=(800, 1200))
+    display(p_all)
 end
 
 example()
