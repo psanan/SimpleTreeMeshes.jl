@@ -1,5 +1,6 @@
 using Plots
 using SimpleTreeMeshes
+using MPI
 
 struct Problem
   name::String
@@ -102,4 +103,5 @@ function example()
     display(p_all)
 end
 
+MPI.Init()
 example()
